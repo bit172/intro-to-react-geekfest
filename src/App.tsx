@@ -5,6 +5,8 @@ import { fetchGenOnePokemons, fetchPokemon } from './api/ApiClient'
 import { PokemonGrid } from './components/PokemonGrid'
 import { Loader } from './components/Loader'
 
+import './App.scss'
+
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -36,6 +38,7 @@ function App() {
   return (
     <main>
       <section>
+        <h1 className="title">Pokedex</h1>
         {isLoading ? <Loader /> : <PokemonGrid pokemons={pokemons} />}
       </section>
     </main>

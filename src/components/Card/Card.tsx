@@ -7,14 +7,19 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ pokemon }) => {
   const imgURL = getImageURL(pokemon.id)
+  const cardClassNames = pokemon.types
+    .map(({ type }) => 'type-' + type.name)
+    .join(' ')
 
   return (
-    <div className="card glass">
+    <div className={`card glass ${cardClassNames}`}>
       <div className="card-title">
         <h2 className="card-title-name">{pokemon.name.replace(/-/g, ' ')}</h2>
-        <div>
+        <div className="type-badge-container">
           {pokemon.types.map(({ type }) => (
-            <span className="type-badge">{type.name}</span>
+            <span key={type.name} className="type-badge">
+              {type.name}
+            </span>
           ))}
         </div>
       </div>

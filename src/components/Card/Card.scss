@@ -1,3 +1,7 @@
+:root {
+  --card-bg-color: rgba(41, 209, 255, 0.3);
+}
+
 .card {
   display: flex;
   justify-content: space-between;
@@ -23,8 +27,14 @@
     max-height: 100%;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   }
+  .type-badge-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
   .type-badge {
-    display: inline-block;
+    display: block;
+    width: fit-content;
     text-transform: capitalize;
     padding: 5px 10px;
     background-color: orange;
@@ -32,12 +42,84 @@
   }
 }
 
+.type-normal {
+  --card-bg-color: #c2c2a1;
+}
+
+.type-flying {
+  --card-bg-color: #bab0d5;
+}
+
+.type-ghost {
+  --card-bg-color: #735797;
+}
+
+.type-dark {
+  --card-bg-color: #333;
+}
+
+.type-steel {
+  --card-bg-color: #ccccde;
+}
+
+.type-ground {
+  --card-bg-color: #b1736c;
+}
+
+.type-poison {
+  --card-bg-color: #7c538c;
+}
+
+.type-grass {
+  --card-bg-color: #48d0b0;
+}
+
+.type-fire {
+  --card-bg-color: #fb6c6c;
+}
+
+.type-electric {
+  --card-bg-color: #ffd86f;
+}
+
+.type-fairy {
+  --card-bg-color: #f469a9;
+}
+
+.type-bug {
+  --card-bg-color: #c3ce75;
+}
+
+.type-fighting {
+  --card-bg-color: #d6b591;
+}
+
+.type-water {
+  --card-bg-color: #609fb5;
+}
+
+.type-psychic {
+  --card-bg-color: #9b7fa6;
+}
+
+.type-ice {
+  --card-bg-color: #7fccec;
+}
+
+.type-rock {
+  --card-bg-color: #a6aab6;
+}
+
+.type-dragon {
+  --card-bg-color: #f9be00;
+}
+
 .glass {
   /* From https://css.glass */
-background: rgba(41, 209, 255, 0.30);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(7px);
--webkit-backdrop-filter: blur(7px);
-border: 1px solid rgba(101, 221, 255, 0.3);
+  background: var(--card-bg-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid var(--card-bg-color);
 }
