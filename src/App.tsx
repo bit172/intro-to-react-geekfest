@@ -34,7 +34,11 @@ function App() {
   }, [])
 
   return (
-    <div>{isLoading ? <Loader /> : <PokemonGrid pokemons={pokemons} />}</div>
+    <main>
+      <section>
+        {isLoading ? <Loader /> : <PokemonGrid pokemons={pokemons} />}
+      </section>
+    </main>
   )
 }
 
