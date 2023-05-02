@@ -5,11 +5,12 @@
   padding-right: 1rem;
   padding-bottom: 3rem;
   padding-left: 3rem;
-  border-radius: 3rem;
   align-items: center;
   overflow: hidden;
-  background-color: rgba(0, 128, 128, 0.5);
 
+  .card-title-name {
+    text-transform: capitalize;
+  }
   .card-image {
     align-self: flex-end;
     display: flex;
@@ -17,10 +18,26 @@
     justify-content: flex-end;
     max-width: 50%;
   }
-
   img {
     max-width: 100%;
     max-height: 100%;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   }
+  .type-badge {
+    display: inline-block;
+    text-transform: capitalize;
+    padding: 5px 10px;
+    background-color: orange;
+    border-radius: 100rem;
+  }
+}
+
+.glass {
+  /* From https://css.glass */
+background: rgba(41, 209, 255, 0.30);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7px);
+-webkit-backdrop-filter: blur(7px);
+border: 1px solid rgba(101, 221, 255, 0.3);
 }
