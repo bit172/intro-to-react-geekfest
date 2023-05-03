@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 
 import { fetchGenOnePokemons, fetchPokemon } from './api/ApiClient'
 
@@ -6,10 +6,17 @@ import { PokemonGrid } from './components/PokemonGrid'
 import { Loader } from './components/Loader'
 
 import './App.scss'
+import { Searchbar } from './components/Searchbar'
 
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [searchString, setSearchString] = useState<string>('')
+
+  const onSearchStringChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newSearch = e.target.value
+    setSearchString(newSearch)
+  }
 
   const fetchPokemons = () => {
     setIsLoading(true)
@@ -35,11 +42,25 @@ function App() {
     fetchPokemons()
   }, [])
 
+  const filteredPokemons = pokemons.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchString.toLowerCase())
+  )
+
   return (
     <main>
       <section>
         <h1 className="title">Pokedex</h1>
-        {isLoading ? <Loader /> : <PokemonGrid pokemons={pokemons} />}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="pokedex">
+            <Searchbar
+              searchInput={searchString}
+              handleChange={onSearchStringChange}
+            />
+            <PokemonGrid pokemons={filteredPokemons} />
+          </div>
+        )}
       </section>
     </main>
   )
