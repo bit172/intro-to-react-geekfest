@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({ pokemon }) => {
     .join(' ')
 
   return (
-    <div className={`card glass ${cardClassNames}`}>
+    <div className={`card ${cardClassNames}`}>
       <div className="card-title">
         <h2 className="card-title-name">{pokemon.name.replace(/-/g, ' ')}</h2>
         <div className="type-badge-container">
