@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ pokemon }) => {
         <h2 className="card-title-name">{pokemon.name.replace(/-/g, ' ')}</h2>
         <div className="type-badge-container">
           {pokemon.types.map(({ type }) => (
-            <span key={type.name} className="type-badge">
+            <span key={type.name} className={`type-badge ${cardClassNames}`}>
               {type.name}
             </span>
           ))}

@@ -1,8 +1,10 @@
 :root {
+  --font-color: white;
   --card-bg-color: rgba(41, 209, 255, 0.3);
 }
 
 .card {
+  color: var(--font-color);
   display: flex;
   justify-content: space-between;
   padding-top: 3rem;
@@ -11,12 +13,14 @@
   padding-left: 3rem;
   align-items: center;
   overflow: hidden;
-
+  h2 {
+    margin-top: 0
+  }
   .card-title-name {
     text-transform: capitalize;
   }
   .card-image {
-    align-self: flex-end;
+    // align-self: flex-end;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -31,13 +35,14 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    min-height: 22px;
   }
   .type-badge {
     display: block;
     width: fit-content;
     text-transform: capitalize;
     padding: 5px 10px;
-    background-color: orange;
+    background-color: rgba( 255,255,255,.2 );
     border-radius: 100rem;
   }
 }
@@ -80,6 +85,7 @@
 
 .type-electric {
   --card-bg-color: #ffd86f;
+  --font-color: black;
 }
 
 .type-fairy {
