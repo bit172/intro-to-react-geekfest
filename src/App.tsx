@@ -1,12 +1,12 @@
 import { useState, useEffect, ChangeEvent } from 'react'
 
-import { fetchGenOnePokemons, fetchPokemon } from './api/ApiClient'
+import { fetchGenOnePokemons } from './api/ApiClient'
 
 import { PokemonGrid } from './components/PokemonGrid'
+import { Searchbar } from './components/Searchbar'
 import { Loader } from './components/Loader'
 
 import './App.scss'
-import { Searchbar } from './components/Searchbar'
 
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
@@ -22,20 +22,13 @@ function App() {
     setIsLoading(true)
     setPokemons([])
 
-    fetchGenOnePokemons().then(async (genOnePokemons) => {
-      const { results } = genOnePokemons
-      const data: Pokemon[] = []
-
-      await Promise.all(
-        results.map(async ({ name }) => {
-          const pokemon = await fetchPokemon(name)
-          data[pokemon.id] = pokemon
-        })
-      )
-
-      setPokemons(data)
-      setIsLoading(false)
-    })
+    fetchGenOnePokemons()
+      .then((pokemons) => {
+        setPokemons(pokemons)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   useEffect(() => {
