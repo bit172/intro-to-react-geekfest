@@ -1,5 +1,3 @@
-import { Card } from '../Card'
-
 import './PokemonGrid.scss'
 
 type PokemonGridProps = {
@@ -7,13 +5,7 @@ type PokemonGridProps = {
 }
 
 const PokemonGrid: React.FC<PokemonGridProps> = ({ pokemons }) => {
-  return (
-    <div className="pokemon-grid">
-      {pokemons.map((pokemon, idx) => (
-        <Card key={idx} pokemon={pokemon} />
-      ))}
-    </div>
-  )
+  return <div className="pokemon-grid"></div>
 }
 
 export default PokemonGrid
