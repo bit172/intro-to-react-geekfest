@@ -14,8 +14,7 @@ function App() {
   const [searchString, setSearchString] = useState<string>('')
 
   const onSearchStringChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const newSearch = e.target.value
-    setSearchString(newSearch)
+    setSearchString(e.target.value)
   }
 
   const fetchPokemons = () => {
